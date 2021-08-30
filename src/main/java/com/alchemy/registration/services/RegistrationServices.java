@@ -5,12 +5,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import com.alchemy.registration.controller.RegistrationController;
 import com.alchemy.registration.datamodel.RegistrationModel;
 import com.alchemy.registration.exceptions.UserExistException;
 import com.alchemy.registration.exceptions.UserNotFoundException;
 import com.alchemy.registration.repository.RegistrationRepository;
 import com.alchemy.registration.validations.EmailValidations;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -23,10 +26,9 @@ import static com.alchemy.registration.validations.Constants.*;
 
 
 @Service
-@Slf4j
 public class RegistrationServices {
 
-
+    private static Logger log = LoggerFactory.getLogger(RegistrationController.class);
     @Autowired
     private final RegistrationRepository registrationRepository;
 
@@ -57,7 +59,7 @@ public class RegistrationServices {
         CharSequence pass = user.getPassword();
         String p = new String(new BCryptPasswordEncoder().encode(pass));
 
-        log.info("Password: " + p);
+      //  log.info("Password: " + p);
         user.setPassword(p);
         if (registrationRepository.findByEmail(user.getEmail()).isPresent()) {
             throw new UserExistException(UserExists);

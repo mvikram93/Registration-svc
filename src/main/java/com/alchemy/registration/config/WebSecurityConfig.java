@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import static com.alchemy.registration.roles.ApplicationUserPermission.*;
 import static com.alchemy.registration.roles.ERoles.*;
@@ -40,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
               .antMatchers("/user/register")
               .permitAll().anyRequest().authenticated().and().httpBasic();*/
         http
-                .csrf()
+                .csrf()//.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/user/register").permitAll()
@@ -51,7 +52,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .httpBasic();
+                .formLogin();
+                //.httpBasic();
 
 
 

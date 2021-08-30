@@ -1,0 +1,34 @@
+server:
+  port: 2020
+  profiles:
+    name: dev
+
+value: Vikram
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/alchemydb?zeroDateTimeBehavior=convertToNull
+    username: root
+    password:
+    name: alchemydb
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+  rabbitmq:
+    listener:
+      simple:
+        default-requeue-rejected: false
+
+logging:
+  file:
+    name: registration.log
+  path: G:\IntelliJ\Microservices\registration\
+  level:
+    root: "info"
+    org.hibernate: "error"
+
+
