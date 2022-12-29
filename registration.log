@@ -59,3 +59,4 @@
 2021-08-30 21:47:38.493  INFO 12364 --- [http-nio-2020-exec-7] c.a.r.controller.RegistrationController  : User1 : Vikram---Vimal
 2021-08-30 21:47:38.493  INFO 12364 --- [http-nio-2020-exec-7] c.a.r.controller.RegistrationController  : Valid : true
 hello1
+hello
