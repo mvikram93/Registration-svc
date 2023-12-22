@@ -6,12 +6,12 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Table
-@Entity(name = "registration")
+@Entity(name = "tbl_registration")
 public class RegistrationModel {
 
     public RegistrationModel(String name,
                              String email,
-                             Date dob,
+                             String dob,
                              Long mobile_no,
                              Boolean disclosure_acceptance,
                              Date registered_date_time) {
@@ -44,7 +44,7 @@ public class RegistrationModel {
     @Column(name = "password")
     private String password;
     @Column(name = "dob")
-    private Date dob;
+    private String dob;
     @Column(name = "mobile_no")
     private Long mobile_no;
     @Column(name = "disclosure_acceptance")
@@ -87,11 +87,11 @@ public class RegistrationModel {
         this.email = email;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 

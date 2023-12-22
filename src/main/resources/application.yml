@@ -17,16 +17,17 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-        ddl-auto: update
+        ddl-auto: create-drop
   rabbitmq:
     listener:
       simple:
         default-requeue-rejected: false
+      direct:
+        auto-startup: false
 
 logging:
   file:
     name: registration.log
-  path: G:\IntelliJ\Microservices\registration\
   level:
     root: "info"
     org.hibernate: "error"

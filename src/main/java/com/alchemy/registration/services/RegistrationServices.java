@@ -14,7 +14,7 @@ import com.alchemy.registration.validations.EmailValidations;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
+//import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -32,8 +32,8 @@ public class RegistrationServices {
     @Autowired
     private final RegistrationRepository registrationRepository;
 
-    @Autowired
-    private RabbitMessagingTemplate rabbitMessagingTemplate;
+/*    @Autowired
+    private RabbitMessagingTemplate rabbitMessagingTemplate;*/
 
 
     private EmailValidations emailValidations = new EmailValidations();
@@ -68,7 +68,7 @@ public class RegistrationServices {
             registrationRepository.save(user);
         }
 
-        rabbitMessagingTemplate.convertAndSend("myQueue1","User Registered");
+      //  rabbitMessagingTemplate.convertAndSend("myQueue1","User Registered");
         return UserRegistered;
     }
 

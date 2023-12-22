@@ -20,9 +20,9 @@ repositories {
 
 dependencies {
 	// https://mvnrepository.com/artifact/org.springframework.amqp/spring-amqp
-	implementation 'org.springframework.amqp:spring-amqp:2.3.10'
+	//implementation 'org.springframework.amqp:spring-amqp:2.3.10'
 // https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit
-	implementation 'org.springframework.amqp:spring-rabbit:2.3.10'
+//	implementation 'org.springframework.amqp:spring-rabbit:2.3.10'
 
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.5.1'
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
@@ -35,7 +35,7 @@ dependencies {
 	implementation 'org.projectlombok:lombok:1.18.20'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: '2.5.3'
+//	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: '2.5.3'
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging
 	implementation 'org.springframework.boot:spring-boot-starter-logging:2.5.3'
 
